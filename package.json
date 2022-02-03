@@ -1,7 +1,7 @@
 {
   "name": "mc",
   "esy": {
-    "build": "dune build"
+    "build": "dune build -p minsk"
   },
   "scripts": {
     "test": "dune runtest",
