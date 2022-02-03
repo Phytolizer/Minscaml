@@ -62,3 +62,10 @@ let next_token (l : t) : Token.t * t =
 let rec all_tokens (l : t) : Token.t list =
   let token, l = next_token l in
   if token.kind == Kind.EndOfFileToken then [ token ] else token :: all_tokens l
+
+let rec all_important_tokens (l : t) : Token.t list =
+  let token, l = next_token l in
+  match token.kind with
+  | Kind.WhitespaceToken | Kind.BadToken -> all_important_tokens l
+  | Kind.EndOfFileToken -> [ token ]
+  | _ -> token :: all_important_tokens l
