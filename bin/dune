@@ -1,0 +1,5 @@
+(executable
+  (name mc)
+  (package mc)
+  (public_name mc)
+  (libraries minsk))
