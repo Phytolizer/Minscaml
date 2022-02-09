@@ -19,3 +19,6 @@ let peek offset p =
   let index = p.position + offset in
   if index < Array.length p.tokens then Array.get p.tokens index
   else match ArrayExt.last p.tokens with None -> assert false | Some t -> t
+
+let parse p =
+  ignore p
