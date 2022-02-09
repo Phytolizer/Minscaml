@@ -37,9 +37,7 @@ let expr_children e =
       ]
 
 let print n =
-  match n with
-  | Expression e -> print_expr e
-  | Token t -> print_string (Token.print t)
+  match n with Expression e -> print_expr e | Token t -> Token.print t
 
 let children n = match n with Expression e -> expr_children e | Token t -> []
 
@@ -48,7 +46,7 @@ let pretty_print n =
     print_string indent;
     let marker = if is_last then "└───" else "├───" in
     print_string marker;
-    print n;
+    print_string (print n);
     print_endline "";
     let indent = if is_last then indent ^ "    " else indent ^ "│   " in
     let children = children n in
